@@ -262,3 +262,29 @@ MIT
 ---
 
 *Built for India's 500M+ bank account holders who deserve to know exactly how safe their money is.*
+
+## Test Results
+
+FSI engine unit tests running locally.
+
+![FSI Tests](docs/images/fsi-tests.png)
+
+Example output:
+
+```
+═══ FSI ENGINE TESTS ═══
+
+Ideal Profile:
+PASS: engine returns result object
+PASS: score within range
+PASS: ideal score >= 600
+PASS: module scores exist
+
+Vulnerable Profile:
+PASS: engine runs
+PASS: score identifies risk
+PASS: liquidity low
+
+RESULTS: 7 passed, 0 failed
+```
+
