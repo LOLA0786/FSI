@@ -1,0 +1,31 @@
+{
+  "name": "Bank Run Scenario",
+  "description": "Simulates sudden withdrawal shock and liquidity collapse",
+
+  "profile": {
+    "userId": "scenario_user",
+    "netMonthlyIncomeINR": 80000
+  },
+
+  "deposits": [
+    { "bankId": "COOP_A", "bankType": "COOP", "balanceINR": 900000 },
+    { "bankId": "SBI", "bankType": "PSB", "balanceINR": 200000 }
+  ],
+
+  "fixedDeposits": [
+    { "bankId": "COOP_A", "principalINR": 500000 }
+  ],
+
+  "liquidAssets": {
+    "savingsBalanceINR": 10000,
+    "liquidMutualFundsINR": 0
+  },
+
+  "upiTransactions": [
+    { "txnId": "x1", "amountINR": 150000, "timestamp": "2025-01-01T02:00:00Z", "mcc": 9999 }
+  ],
+
+  "recurringCharges": [
+    { "merchantName": "UnknownSub", "monthlyAmountINR": 3000 }
+  ]
+}
