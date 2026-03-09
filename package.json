@@ -6,6 +6,7 @@
     "simulate": "node scripts/simulate-bank-failure.js",
     "contagion": "node scripts/simulate-contagion.js",
     "scenario": "node scripts/run-scenario.js",
+    "api": "node src/api/server.js",
     "test": "node tests/unit/core/engine/fsi.engine.test.js"
   }
 }
