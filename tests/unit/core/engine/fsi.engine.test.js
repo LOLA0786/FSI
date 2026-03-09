@@ -3,10 +3,8 @@
  */
 
 'use strict';
-
-const { runFSIEngine } = require('../../../src/core/engine/fsi.engine');
-const { FSI_SCORE_MAX, FSI_SCORE_MIN } = require('../../../src/shared/constants/fsi.constants');
-
+const { runFSIEngine } = require('../../../../src/core/engine/fsi.engine.js');
+const { FSI_SCORE_MAX, FSI_SCORE_MIN } = require('../../../../src/shared/constants/fsi.constants.js');
 // ─── TEST FIXTURES ─────────────────────────────────────────────────────────
 
 const IDEAL_PROFILE = {
