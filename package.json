@@ -1,0 +1,9 @@
+{
+  "name": "fsi-engine",
+  "version": "1.0.0",
+  "scripts": {
+    "demo": "node scripts/run-example.js",
+    "simulate": "node scripts/simulate-bank-failure.js",
+    "test": "node tests/unit/core/engine/fsi.engine.test.js"
+  }
+}
