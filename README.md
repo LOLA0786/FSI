@@ -288,3 +288,178 @@ PASS: liquidity low
 RESULTS: 7 passed, 0 failed
 ```
 
+
+---
+
+# ⚡ FSI in 30 Seconds
+
+Financial Safety Engine (FSI) calculates a **Tesla-style financial safety score (0–850)** using real banking data.
+
+Instead of opaque credit scores, FSI shows **exactly why your money is safe or risky**.
+
+Modules evaluated:
+
+- Deposit Insurance (DICGC ₹5L coverage)
+- Liquidity Buffer
+- FD Diversification
+- Bank Safety
+- UPI Fraud Risk
+- Subscription Leaks
+- Merchant Trust
+
+Output:
+
+FSI Score → Grade → Risk Modules → Action Plan
+
+---
+
+# 🚀 Run the Engine Locally (30 seconds)
+
+Clone the repo
+
+
+git clone https://github.com/LOLA0786/FSI
+
+cd FSI
+npm install
+
+
+Run a demo scenario
+
+
+node scripts/run-example.js
+
+
+Example output
+
+
+FSI Score: 701
+Grade: Strong
+
+Top Risks
+
+Low liquidity
+
+FD concentration
+
+
+---
+
+# 📊 Run with a Real Bank Statement
+
+Convert Excel → CSV
+
+
+python scripts/clean-hdfc-statement.py
+
+
+Analyze statement
+
+
+node scripts/run-ingestion.js statement_real.csv
+
+
+Example output
+
+
+FSI Score: 516
+Grade: Moderate
+
+
+---
+
+# 🌐 Run the API Server
+
+
+node src/api/server.js
+
+
+Test endpoint
+
+
+curl -X POST http://localhost:3000/fsi/score
+
+-H "Content-Type: application/json"
+-d @scenarios/demo_user.json
+
+
+---
+
+# 🧠 Architecture
+
+FSI follows a strict functional architecture.
+
+
+Input Data
+↓
+Validators
+↓
+Independent Risk Modules
+↓
+Weighted Scoring Engine
+↓
+Recommendations
+↓
+API / Dashboard
+
+
+Core design rules:
+
+- Pure functions
+- No hidden state
+- Explicit constants
+- Deterministic scoring
+- Typed errors
+
+---
+
+# 📦 Example Result
+
+
+FSI Score: 516
+Grade: Moderate
+
+Module Scores
+depositInsurance : 100
+liquidity : 10
+fdDiversification : 40
+bankSafety : 50
+upiFraud : 100
+subscriptionLeak : 100
+merchantTrust : 3
+
+
+---
+
+# 🗺 Roadmap
+
+Next major capabilities:
+
+- React dashboard
+- Account Aggregator integration
+- RBI risk signals
+- AI financial copilot
+- UPI fraud ML models
+- Mobile app
+
+---
+
+# 🧑‍💻 Contributing
+
+FSI is **open core**.
+
+New modules welcome:
+
+- Mutual fund risk
+- Gold exposure
+- Crypto exposure
+- Climate financial risk
+
+PRs welcome.
+
+---
+
+# 📜 License
+
+MIT License
+
