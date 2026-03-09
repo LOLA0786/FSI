@@ -2,8 +2,8 @@
 
 const http = require('http');
 
-const { runFSIEngine } =
-  require('../core/engine/fsi.engine');
+const { calculateFSI } =
+  require('../services/fsi.service');
 
 const PORT = 3000;
 
@@ -28,7 +28,7 @@ const server = http.createServer((req, res) => {
 
         const input = JSON.parse(body);
 
-        const result = runFSIEngine(input);
+        const result = calculateFSI(input);
 
         send(res, 200, result);
 
@@ -62,7 +62,7 @@ server.listen(PORT, () => {
 
 function timedRun(input) {
   const start = Date.now();
-  const result = runFSIEngine(input);
+  const result = calculateFSI(input);
   const duration = Date.now() - start;
 
   result.meta.processingTimeMs = duration;
