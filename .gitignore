@@ -1,0 +1,11 @@
+node_modules/
+venv/
+uploads/
+
+# financial data
+*.xls
+*.xlsx
+*.csv
+
+# OS
+.DS_Store

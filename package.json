@@ -8,5 +8,8 @@
     "scenario": "node scripts/run-scenario.js",
     "api": "node src/api/server.js",
     "test": "node tests/unit/core/engine/fsi.engine.test.js"
+  },
+  "dependencies": {
+    "multer": "^2.1.1"
   }
 }

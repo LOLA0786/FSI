@@ -1,71 +1,22 @@
 'use strict';
 
-const http = require('http');
+const express = require('express');
+const cors = require('cors');
 
-const { calculateFSI } =
-  require('../services/fsi.service');
+const fsiRoutes =
+  require('./routes/fsi.routes');
 
-const PORT = 3000;
+const app = express();
 
-function send(res, status, data) {
-  res.writeHead(status, { 'Content-Type': 'application/json' });
-  res.end(JSON.stringify(data, null, 2));
-}
+app.use(cors());
+app.use(express.json());
 
-const server = http.createServer((req, res) => {
+app.use('/fsi', fsiRoutes);
 
-  if (req.method === 'POST' && req.url === '/fsi/score') {
+const PORT = process.env.PORT || 3000;
 
-    let body = '';
+app.listen(PORT, () => {
 
-    req.on('data', chunk => {
-      body += chunk;
-    });
-
-    req.on('end', () => {
-
-      try {
-
-        const input = JSON.parse(body);
-
-        const result = calculateFSI(input);
-
-        send(res, 200, result);
-
-      } catch (err) {
-
-        send(res, 400, {
-          error: err.message
-        });
-
-      }
-
-    });
-
-    return;
-  }
-
-  if (req.method === 'GET' && req.url === '/health') {
-
-    send(res, 200, { status: "FSI API running" });
-    return;
-
-  }
-
-  send(res, 404, { error: "Route not found" });
+  console.log("FSI API running on port", PORT);
 
 });
-
-server.listen(PORT, () => {
-  console.log("FSI API listening on port", PORT);
-});
-
-function timedRun(input) {
-  const start = Date.now();
-  const result = calculateFSI(input);
-  const duration = Date.now() - start;
-
-  result.meta.processingTimeMs = duration;
-  return result;
-}
-
