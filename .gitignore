@@ -9,3 +9,5 @@ uploads/
 
 # OS
 .DS_Store
+test-data/
+statement_real.csv

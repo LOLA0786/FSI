@@ -463,3 +463,29 @@ PRs welcome.
 
 MIT License
 
+
+## 30-Second Demo
+
+Analyze a bank statement and compute a Financial Safety Score.
+
+### 1. Install dependencies
+
+npm install
+
+### 2. Convert a bank statement CSV to transactions
+
+node scripts/parse-csv.js
+
+### 3. Run the Financial Safety Engine
+
+node fsi-engine.js
+
+Example output:
+
+Transactions analyzed: 370
+FSI Safety Score: 68
+
+Fraud Alerts:
+- Large transaction anomaly
+- Rapid transaction burst detected
+
